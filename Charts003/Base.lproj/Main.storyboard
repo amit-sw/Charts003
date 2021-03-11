@@ -1,24 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Chart View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ChartViewController" customModule="Charts003" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gp9-sQ-04d">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="603-7n-9g1">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="409"/>
+                                        <subviews>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rcK-Pn-dna">
+                                                <rect key="frame" x="0.0" y="102" width="112" height="205"/>
+                                                <date key="date" timeIntervalSinceReferenceDate="629050446.04008198">
+                                                    <!--2020-12-07 16:14:06 +0000-->
+                                                </date>
+                                                <connections>
+                                                    <action selector="firstDatePressed:" destination="BYZ-38-t0r" eventType="valueChanged" id="ErW-j4-IGN"/>
+                                                </connections>
+                                            </datePicker>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86I-IH-MTb">
+                                                <rect key="frame" x="112" y="132.5" width="112" height="144"/>
+                                                <date key="date" timeIntervalSinceReferenceDate="629309633.29666996">
+                                                    <!--2020-12-10 16:13:53 +0000-->
+                                                </date>
+                                                <connections>
+                                                    <action selector="secondDateChosen:" destination="BYZ-38-t0r" eventType="valueChanged" id="WBy-p6-HA0"/>
+                                                </connections>
+                                            </datePicker>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kjJ-f3-Fla">
+                                                <rect key="frame" x="224" y="174.5" width="190" height="60"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <state key="normal" title="Draw Graph"/>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5i7-mn-hhC"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" horizontalHuggingPriority="247" verticalHuggingPriority="248" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" translatesAutoresizingMaskIntoConstraints="NO" id="Saa-ak-LwH" customClass="HIChartView">
+                                        <rect key="frame" x="87" y="409" width="240" height="409"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gp9-sQ-04d" secondAttribute="trailing" id="I1b-3d-JTn"/>
+                            <constraint firstItem="gp9-sQ-04d" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="KYK-C9-fZf"/>
+                            <constraint firstItem="gp9-sQ-04d" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="UyE-Lj-WtQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gp9-sQ-04d" secondAttribute="bottom" id="jCO-hs-3Co"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="drawButton" destination="kjJ-f3-Fla" id="7Uc-bb-077"/>
+                        <outlet property="firstDate" destination="rcK-Pn-dna" id="BqP-Y7-dbh"/>
+                        <outlet property="mainView" destination="Saa-ak-LwH" id="zLb-mT-IMC"/>
+                        <outlet property="secondDate" destination="86I-IH-MTb" id="7rC-Iz-p3d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-214" y="32"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
